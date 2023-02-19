@@ -1,0 +1,11 @@
+<h1>主頁</h1>
+
+<ul>
+  <% @events.each do |event| %>
+    <li><%= event.name %></li>
+    <li><%= link_to "秀出來", event_path(event) %></li>
+    <li><%= link_to "編輯囉", edit_event_path(event) %></li>
+    <li><%= link_to "刪除啊", event_path(event), method: :delete, data: {confirm: "要刪除嗎"} %></li>
+    <li><%= link_to "新增", new_event_path(event) %></li>
+  <% end %>
+</ul>
