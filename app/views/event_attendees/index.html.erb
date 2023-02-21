@@ -1,0 +1,12 @@
+<ul>
+  <% @attendees.each do |attendee| %>
+
+    <li><%= attendee.name %></li>
+    <li><%= link_to "show", event_attendee_path(@event, attendee) %></li>
+    <li><%= link_to "edit", edit_event_attendee_path(@event, attendee) %></li>
+    <li><%= link_to "destroy", event_attendee_path(@event, attendee), method: "delete" %></li>
+
+  <% end %>
+</ul>
+
+<%= link_to "new", new_event_attendee_path(@event) %>
