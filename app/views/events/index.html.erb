@@ -7,6 +7,7 @@
     <li><%= link_to "編輯囉", edit_event_path(event) %></li>
     <li><%= link_to "刪除啊", event_path(event), method: :delete, data: {confirm: "要刪除嗎"} %></li>
     <li><%= link_to "attendee", event_attendees_path(event) %></li>
+    <li><%= link_to "location", event_location_path(event) %></li>
   <% end %>
 </ul>
 

@@ -7,5 +7,19 @@
   <%= form.label :description %>
   <%= form.text_area :description %>
 
+  <%= form.collection_select(:category_id, Category.all, :id, :name) %>
+
   <%= form.submit %>
+
+  <%= form.fields_for :location do |l_f| %>
+    <p>
+      <%= l_f.label :name, "地點" %>
+      <%= l_f.text_field :name %>
+
+      <% unless l_f.object.new_record? %>
+        <%= l_f.label :_destroy, "刪除" %>
+        <%= l_f.checkbox :_destroy %>
+      <% end %>
+    </p>
+  <% end %>
 <% end %>

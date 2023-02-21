@@ -38,7 +38,7 @@ class EventAttendeesController < ApplicationController
   end
 
   def destroy
-    @attendee = @event.attendees.build(params[:id])
+    @attendee = @event.attendees.find(params[:id])
     @attendee.destroy
     redirect_to event_attendees_path, notice: "刪除資料"
   end

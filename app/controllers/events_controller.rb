@@ -45,6 +45,6 @@ class EventsController < ApplicationController
   end
 
   def params_event
-    params.require(:event).permit(:name, :description, :capcity)
+    params.require(:event).permit(:name, :description, :capcity, :category_id, :location_attributes => [:id, :name, :_destroy])
   end
 end

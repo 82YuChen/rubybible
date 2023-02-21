@@ -1,6 +1,7 @@
 <h1>秀出來啊</h1>
 
 <%= @event.name %>
+<p>Category: <%= @event.category.name %></p>
 <%= simple_format(@event.description) %>
 
 <%= link_to "首頁", root_path %>
