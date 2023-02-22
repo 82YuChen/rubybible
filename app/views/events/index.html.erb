@@ -1,14 +1,20 @@
 <h1>主頁</h1>
 
+<%= form_tag bulk_update_events_path do %>
 <ul>
   <% @events.each do |event| %>
-    <li><%= event.name %></li>
-    <li><%= link_to "秀出來", event_path(event) %></li>
-    <li><%= link_to "編輯囉", edit_event_path(event) %></li>
-    <li><%= link_to "刪除啊", event_path(event), method: :delete, data: {confirm: "要刪除嗎"} %></li>
-    <li><%= link_to "attendee", event_attendees_path(event) %></li>
-    <li><%= link_to "location", event_location_path(event) %></li>
+    <li>
+    <%= check_box_tag "ids[]", event.id, false %>
+    <%= event.name %>
+    <%= link_to "秀出來", event_path(event) %>
+    <%= link_to "編輯囉", edit_event_path(event) %>
+    <%= link_to "刪除啊", event_path(event), method: :delete, data: {confirm: "要刪除嗎"} %>
+    <%= link_to "attendee", event_attendees_path(event) %>
+    <%= link_to "location", event_location_path(event) %></li>
   <% end %>
 </ul>
+  <%= submit_tag "Delete" %>
+  <%= submit_tag "Publish" %>
+<% end %>
 
-<%= link_to "新增", new_event_path(@event) %></li>
+<%= link_to "新增", new_event_path(@event) %>

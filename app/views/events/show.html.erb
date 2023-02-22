@@ -4,4 +4,9 @@
 <p>Category: <%= @event.category.name %></p>
 <%= simple_format(@event.description) %>
 
+<p>Group:
+  <%= @event.groups.each do |g|%>
+    <%= g.name %>
+  <% end %>
+</p>
 <%= link_to "首頁", root_path %>
